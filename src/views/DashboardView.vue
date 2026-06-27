@@ -1,12 +1,33 @@
-<template>
-  <div class="space-y-2">
-    <h1 class="text-2xl font-bold tracking-tight text-slate-900">Analytics</h1>
-    <p class="text-sm text-slate-500">Detailed overview of your financial situation</p>
+<script setup>
+import { Calendar, LayoutTemplate, Plus } from 'lucide-vue-next'
+</script>
 
-    <div class="mt-6 h-[1000px] bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-      <p class="text-slate-400 text-sm">
-        Dashboard content area (Uji coba scroll... Kotak ini sengaja dibuat tinggi)
-      </p>
+<template>
+  <div class="space-y-6">
+    <div class="flex items-center justify-between pt-2">
+      <button
+        class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-[#1A1D1F] hover:bg-slate-50 transition-all shadow-sm"
+      >
+        <Calendar class="w-4 h-4 text-slate-400" />
+        This month
+      </button>
+
+      <div class="flex items-center gap-3">
+        <button
+          class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-[#1A1D1F] hover:bg-slate-50 transition-all shadow-sm"
+        >
+          <LayoutTemplate class="w-4 h-4 text-slate-400" />
+          Manage widgets
+        </button>
+        <button
+          class="flex items-center gap-2 px-4 py-2 bg-[#6F4EFA] text-white rounded-full text-sm font-medium hover:bg-[#5b3ce0] transition-all shadow-sm shadow-[#6F4EFA]/25"
+        >
+          <Plus class="w-4 h-4" />
+          Add new widget
+        </button>
+      </div>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
   </div>
 </template>
