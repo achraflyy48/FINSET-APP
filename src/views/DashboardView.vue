@@ -1,5 +1,6 @@
 <script setup>
 import { Calendar, LayoutTemplate, Plus } from 'lucide-vue-next'
+import SummaryCard from '../components/SummaryCard.vue'
 </script>
 
 <template>
