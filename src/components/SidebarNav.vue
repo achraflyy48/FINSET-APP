@@ -1,6 +1,6 @@
-<script>
+<script setup>
 import { RouterLink } from 'vue-router'
-//MENGIMPOR ICON DARI LUCIDE
+// Mengimpor ikon spesifik yang kita butuhkan dari Lucide
 import {
   LayoutDashboard,
   ArrowRightLeft,
@@ -13,10 +13,9 @@ import {
   LogOut,
   Sun,
   Moon,
-  Component,
 } from 'lucide-vue-next'
 
-//MENYIMPAN DAFTAR MENU DALAM BENTUK ARRAY OBJECT
+// Menyimpan daftar menu dalam bentuk Array Object (Prinsip DRY)
 const mainMenus = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   { name: 'Transactions', path: '/transactions', icon: ArrowRightLeft },
@@ -35,9 +34,9 @@ const mainMenus = [
     <div>
       <div class="flex items-center gap-3 mb-10 px-2">
         <div class="w-8 h-8 rounded-full bg-[#1A1D1F] flex items-center justify-center text-white">
-          <span class="font-bold text-lg loading-none mt-[-2px]">F</span>
+          <span class="font-bold text-lg leading-none mt-[-2px]">F</span>
         </div>
-        <span class="font-bold text-xl tracking-tight text-[#1A1D1F]">Finset</span>
+        <span class="font-bold text-xl tracking-tight text-[#1A1D1F]">FinSet</span>
       </div>
 
       <nav class="flex flex-col gap-1">
