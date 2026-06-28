@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import SidebarNav from './components/SidebarNav.vue'
-import HeaderBar from './components/HeaderBar.vue' // 1. Import komponen baru
+import HeaderBar from './components/HeaderBar.vue'
 </script>
 
 <template>
