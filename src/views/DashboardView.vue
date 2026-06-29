@@ -1,6 +1,9 @@
 <script setup>
 import { Calendar, LayoutTemplate, Plus } from 'lucide-vue-next'
 import SummaryCard from '../components/SummaryCard.vue'
+import OverviewChart from '@/components/OverviewChart.vue'
+import BudgetChart from '@/components/BudgetChart.vue'
+import StatisticsChart from '@/components/StatisticsChart.vue'
 </script>
 
 <template>
@@ -59,6 +62,16 @@ import SummaryCard from '../components/SummaryCard.vue'
         :categories="9"
         comparisonText="You spent extra <span class='text-[#1A1D1F] font-bold'>$1,222</span><br>compared to last month"
       />
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+      <div class="lg:col-span-2 flex flex-col gap-6">
+        <OverviewChart />
+        <BudgetChart />
+      </div>
+      <div class="lg:col-span-1">
+        <StatisticsChart />
+      </div>
     </div>
   </div>
 </template>
