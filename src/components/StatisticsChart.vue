@@ -33,6 +33,21 @@ import { ChevronDown } from 'lucide-vue-next'
           $2,500
         </div>
       </div>
+
+      <div class="w-full grid grid-cols-2 gap-y-3 gap-x-2 text-xs font-medium text-slate-500">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#6F4EFA]"></span>Money transfer
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-slate-800"></span>Cafe & Restaurants
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-slate-400"></span>Rent
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-slate-300"></span>Education
+        </div>
+      </div>
     </div>
   </div>
 </template>

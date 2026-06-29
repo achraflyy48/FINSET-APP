@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-vue-next'
 <template>
   <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col h-full">
     <div class="flex items-center justify-between mb-6">
-      <h3 class="text-base font-bold text-[#1A1D1F]">Total Balance Overview</h3>
+      <h3 class="text-base font-bold text-[#1A1D1F]">Total balance overview</h3>
 
       <div class="flex items-center gap-4">
         <div class="flex items-center gap-3 text-xs font-medium text-slate-500">

@@ -10,10 +10,10 @@ import { ChevronDown } from 'lucide-vue-next'
       <div class="flex items-center gap-4">
         <div class="flex items-center gap-3 text-xs font-medium text-slate-500">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#6F4EFA]">Expense</span>
+            <span class="w-2 h-2 rounded-full bg-[#6F4EFA]"></span>Expense
           </div>
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#A893FA]">Budget</span>
+            <span class="w-2 h-2 rounded-full bg-[#A893FA]"></span>Budget
           </div>
         </div>
         <button
