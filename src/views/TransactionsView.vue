@@ -68,13 +68,9 @@ const transactions = [
 
 <template>
   <div class="space-y-6">
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-2">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight text-[#1A1D1F]">Transactions</h1>
-        <p class="text-sm text-slate-500">Manage and track your financial history</p>
-      </div>
-
+    <div class="flex flex-col md:flex-row md:items-center justify-end gap-4 pt-2">
       <div class="flex items-center gap-3 w-full md:w-auto">
+        <!--TOMBOL SEARCH-->
         <div class="relative flex-1 md:flex-none">
           <Search class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
@@ -84,6 +80,7 @@ const transactions = [
           />
         </div>
 
+        <!--TOMBOL FILTER DAN EXPORT-->
         <button
           class="p-2 md:px-4 md:py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-[#1A1D1F] hover:bg-slate-50 transition-all flex items-center gap-2 shrink-0"
         >
