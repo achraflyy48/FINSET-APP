@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardView from '@/views/DashboardView.vue'
+import DashboardView from '../views/DashboardView.vue'
+import AnalyticsView from '@/views/AnalyticsView.vue'
 import TransactionsView from '../views/TransactionsView.vue'
 
 const router = createRouter({
@@ -7,8 +8,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'analytics',
+      name: 'dashboard',
       component: DashboardView,
+      meta: {
+        title: 'Dashboard',
+        subtitle: 'Welcome back, here is your financial overview',
+      },
+    },
+    {
+      path: '/analytics',
+      name: 'analytics',
+      component: AnalyticsView,
       meta: {
         title: 'Analytics',
         subtitle: 'Detailed overview of your financial situation',
