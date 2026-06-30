@@ -9,11 +9,19 @@ const router = createRouter({
       path: '/',
       name: 'analytics',
       component: DashboardView,
+      meta: {
+        title: 'Analytics',
+        subtitle: 'Detailed overview of your financial situation',
+      },
     },
     {
       path: '/transactions',
       name: 'transactions',
       component: TransactionsView,
+      meta: {
+        title: 'Transactions',
+        subtitle: 'Manage and track your financial history',
+      },
     },
   ],
 })
