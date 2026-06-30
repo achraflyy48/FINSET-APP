@@ -13,7 +13,16 @@ import {
   LogOut,
   Sun,
   Moon,
+  X,
 } from 'lucide-vue-next'
+
+//MENERIMA ISOPEN DARI APP.VUE
+defineProps({
+  isOpen: Boolean,
+})
+
+//MENUTUP SIDEBAR JIKA TOMBOL X DI KLIK
+const emit = defineEmits(['close-sidebar'])
 
 // Menyimpan daftar menu dalam bentuk Array Object (Prinsip DRY)
 const mainMenus = [
@@ -28,15 +37,32 @@ const mainMenus = [
 </script>
 
 <template>
+  <div
+    v-if="isOpen"
+    @click="emit('close-sidebar')"
+    class="fixed inset-0 bg-[#1A1D1F]/50 backdrop-blur-sm z-40 md:hidden transition-opacity"
+  ></div>
   <aside
-    class="w-64 h-full bg-white border-r border-slate-100 flex flex-col justify-between py-8 px-6 shrink-0 z-10"
+    :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+    class="fixed md:relative inset-y-0 left-0 z-50 w-64 h-full bg-white md:border-r border-slate-100 flex flex-col justify-between py-8 px-6 shrink-0 transition-transform duration-300 ease-in-out md:translate-x-0"
   >
     <div>
-      <div class="flex items-center gap-3 mb-10 px-2">
-        <div class="w-8 h-8 rounded-full bg-[#1A1D1F] flex items-center justify-center text-white">
-          <span class="font-bold text-lg leading-none mt-[-2px]">F</span>
+      <div class="flex items-center justify-between mb-10 px-2">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 rounded-full bg-[#1A1D1F] flex items-center justify-center text-white"
+          >
+            <span class="font-bold text-lg leading-none mt-[-2px]">F</span>
+          </div>
+          <span class="font-bold text-xl tracking-tight text-[#1A1D1F]">FinSet</span>
         </div>
-        <span class="font-bold text-xl tracking-tight text-[#1A1D1F]">FinSet</span>
+
+        <button
+          @click="emit('close-sidebar')"
+          class="md:hidden p-1 text-slate-400 hover:text-[#1A1D1F] transition-all"
+        >
+          <X class="w-5 h-5" />
+        </button>
       </div>
 
       <nav class="flex flex-col gap-1">
@@ -44,6 +70,7 @@ const mainMenus = [
           v-for="menu in mainMenus"
           :key="menu.name"
           :to="menu.path"
+          @click="emit('close-sidebar')"
           class="flex items-center gap-4 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-200"
           active-class="bg-[#6F4EFA] text-white shadow-lg shadow-[#6F4EFA]/25"
           exact-active-class="bg-[#6F4EFA] text-white shadow-lg shadow-[#6F4EFA]/25"
