@@ -108,6 +108,59 @@ const transactions = [
         <div class="col-span-3">Date & Time</div>
         <div class="col-span-2 text-right pr-8">Amount</div>
       </div>
+
+      <div class="divide-y divide-slate-100">
+        <div
+          v-for="tx in transactions"
+          :key="tx.id"
+          class="p-4 md:p-6 hover:bg-slate-50 transition-colors grid grid-cols-2 md:grid-cols-12 gap-4 items-center cursor-pointer group"
+        >
+          <div class="col-span-1 md:col-span-4 flex items-center gap-4">
+            <div
+              :class="[
+                'w-10 h-10 rounded-full flex items-center justify-center shrink-0',
+                tx.colorClass,
+              ]"
+            >
+              <component :is="tx.icon" class="w-5 h-5 stroke-[2px]" />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-[#1A1D1F]">{{ tx.title }}</p>
+              <div class="md:hidden flex items-center gap-2 mt-1">
+                <span class="text-[11px] font-medium text-slate-500">{{
+                  tx.date.split(',')[0]
+                }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hidden md:block md:col-span-3">
+            <span
+              class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200"
+            >
+              {{ tx.category }}
+            </span>
+          </div>
+
+          <div class="hidden md:block md:col-span-3 text-sm font-medium text-slate-500">
+            {{ tx.date }}
+          </div>
+
+          <div class="col-span-1 md:col-span-2 flex items-center justify-end md:pr-4 gap-4">
+            <span
+              class="text-sm md:text-base font-bold tracking-tight"
+              :class="tx.type === 'income' ? 'text-green-600' : 'text-[#1A1D1F]'"
+            >
+              {{ tx.type === 'income' ? '+' : '-' }}${{ tx.amount }}
+            </span>
+            <button
+              class="hidden md:block text-slate-300 hover:text-[#1A1D1F] opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <MoreVertical class="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
