@@ -6,9 +6,9 @@ const emit = defineEmits(['toggle-sidebar'])
 const route = useRoute()
 
 const userProfile = {
-  name: 'Ela Adinda Safira',
-  email: 'elaadindasafira@gmail.com',
-  avatar: 'https://i.pravatar.cc/150?img=47', //FOTO PROFIL SEMENTARA
+  name: 'Achmad Rafli Teguh Pradana S.',
+  email: 'achmadraflitp@gmail.com',
+  avatar: 'https://i.pravatar.cc/150?img=3', //FOTO PROFIL SEMENTARA
 }
 </script>
 
