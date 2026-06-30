@@ -26,12 +26,12 @@ const emit = defineEmits(['close-sidebar'])
 
 // Menyimpan daftar menu dalam bentuk Array Object (Prinsip DRY)
 const mainMenus = [
-  { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+  { name: 'Dashboard', path: '/', icon: LayoutDashboard },
   { name: 'Transactions', path: '/transactions', icon: ArrowRightLeft },
   { name: 'Wallet', path: '/wallet', icon: Wallet },
   { name: 'Goals', path: '/goals', icon: Target },
   { name: 'Budget', path: '/budget', icon: PieChart },
-  { name: 'Analytics', path: '/', icon: BarChart2 }, // Path '/' mengarah ke halaman aktif kita saat ini
+  { name: 'Analytics', path: '/analytics', icon: BarChart2 },
   { name: 'Settings', path: '/settings', icon: Settings },
 ]
 </script>
