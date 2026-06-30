@@ -1,7 +1,9 @@
 <script setup>
+import { useRoute } from 'vue-router'
 import { Search, Bell, Menu } from 'lucide-vue-next'
 
 const emit = defineEmits(['toggle-sidebar'])
+const route = useRoute()
 
 const userProfile = {
   name: 'Ela Adinda Safira',
@@ -22,12 +24,12 @@ const userProfile = {
 
       <div>
         <h1
-          class="text-xl md:text-[28px] font-bold text-[#1A1D1F] tracking-light leading-none mb-1"
+          class="text-xl md:text-[28px] font-bold text-[#1A1D1F] tracking-tight leading-none mb-1"
         >
-          Analytics
+          {{ route.meta.title || 'Finset Dashboard' }}
         </h1>
-        <p class="hidden md:block text-sm text-slate-500 font-medium">
-          Detailed overview of your financial situation
+        <p>
+          {{ route.meta.subtitle || 'Welcome to your financial overview' }}
         </p>
       </div>
     </div>
