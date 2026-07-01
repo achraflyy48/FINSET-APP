@@ -79,7 +79,7 @@ watch(
               >Amount</label
             >
             <div class="flex items-center justify-center gap-1 text-[#1A1D1F]">
-              <span class="text-3xl font-bold text-slate-300">$</span>
+              <span class="text-3xl font-bold text-slate-300">Rp</span>
               <input
                 type="number"
                 placeholder="0.00"
