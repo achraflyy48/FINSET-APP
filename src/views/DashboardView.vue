@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import {
   Plus,
@@ -9,6 +10,17 @@ import {
   ShoppingCart,
   Utensils,
 } from 'lucide-vue-next'
+import TransactionModal from '../components/TransactionModal.vue'
+
+//STATE MENGATUR MODAL
+const isModalOpen = ref(false)
+const modalType = ref('expense')
+
+//MEMBUKA MODAL DENGAN TIPE TERTENTU
+const openModal = (type) => {
+  modalType.value = type
+  isModalOpen.value = true
+}
 
 // Mock Data untuk Recent Transactions (Ringkasan)
 const recentTransactions = [
@@ -58,12 +70,14 @@ const recentTransactions = [
 
       <div class="flex items-center gap-3 w-full md:w-auto">
         <button
+          @click="openModal('income')"
           class="flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#6F4EFA] rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm"
         >
           <Plus class="w-5 h-5 stroke-[2.5px]" />
           <span class="text-sm">Income</span>
         </button>
         <button
+          @click="openModal('expense')"
           class="flex-1 md:flex-none flex items-center justify-center gap-2 px-5 py-3 bg-[#5b3ce0] border border-[#7b5cfa] text-white rounded-xl font-bold hover:bg-[#4a2ec2] transition-all shadow-sm"
         >
           <Minus class="w-5 h-5 stroke-[2.5px]" />
@@ -148,5 +162,10 @@ const recentTransactions = [
         </div>
       </div>
     </div>
+    <TransactionModal
+      :is-open="isModalOpen"
+      :initial-tab="modalType"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>

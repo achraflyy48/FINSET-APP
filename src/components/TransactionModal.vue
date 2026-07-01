@@ -2,20 +2,21 @@
 import { ref, watch } from 'vue'
 import { X, DollarSign, Calendar, Tag, FileText } from 'lucide-vue-next'
 
+// Menerima instruksi dari komponen induk (Dashboard)
 const props = defineProps({
   isOpen: Boolean,
   initialTab: {
     type: String,
-    default: 'expense',
+    default: 'expense', // 'income' atau 'expense'
   },
 })
 
 const emit = defineEmits(['close'])
 
-//UNTUK MENGATUR TAB YANG AKTIF
+// State lokal untuk mengatur tab mana yang sedang aktif
 const activeTab = ref(props.initialTab)
 
-//MEMASTIKAN TAB SELALU SINKRON JIKA DIBUKA DARI TOMBOL YANG BERBEDA
+// Memastikan tab selalu sinkron jika dibuka dari tombol yang berbeda di Dashboard
 watch(
   () => props.initialTab,
   (newVal) => {
@@ -82,7 +83,7 @@ watch(
               <input
                 type="number"
                 placeholder="0.00"
-                class="w-3.4 text-4xl font-bold bg-transparent text-center focus:outline-none placeholder:text-slate-200"
+                class="w-3/4 text-4xl font-bold bg-transparent text-center focus:outline-none placeholder:text-slate-200"
                 :class="activeTab === 'income' ? 'text-green-500' : 'text-[#1A1D1F]'"
               />
             </div>
@@ -124,7 +125,7 @@ watch(
 
             <div class="space-y-1.5">
               <label class="text-sm font-medium text-[#1A1D1F] flex items-center gap-2">
-                <FileText class="w-4 h-4 text-slate-400" /> Notes
+                <FileText class="w-4 h-4 text-slate-400" /> Note
               </label>
               <input
                 type="text"
@@ -143,7 +144,7 @@ watch(
                 : 'bg-[#6F4EFA] hover:bg-[#5b3ce0] shadow-[#6F4EFA]/25'
             "
           >
-            Save {{ activeTab === 'income' ? 'income' : 'expense' }}
+            Save {{ activeTab === 'income' ? 'Income' : 'Expense' }}
           </button>
         </form>
       </div>
