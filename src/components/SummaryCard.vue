@@ -21,7 +21,7 @@ defineProps({
       <button
         class="flex items-center gap-1 text-xs font-medium text-slate-500 bg-slate-50 px-2 py-1 rounded-lg border border-slate-100"
       >
-        USD <ChevronDown class="w-3 h-3" />
+        IDR <ChevronDown class="w-3 h-3" />
       </button>
     </div>
 

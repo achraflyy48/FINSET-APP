@@ -1,4 +1,5 @@
 <script setup>
+import { formatRupiah } from '../utils/formatters'
 import {
   Search,
   Download,
@@ -18,17 +19,17 @@ const transactions = [
     title: 'Freelance UI Design',
     category: 'Income',
     date: 'Jun 28, 2026, 10:00 AM',
-    amount: '1,200.00',
+    amount: 12000000,
     type: 'income',
     icon: ArrowUpRight,
     colorClass: 'bg-green-100 text-green-600',
   },
   {
     id: 2,
-    title: 'MacBook Pro M3',
+    title: 'Monitor Setup',
     category: 'Electronics',
     date: 'Jun 27, 2026, 14:30 PM',
-    amount: '2,499.00',
+    amount: 2500000,
     type: 'expense',
     icon: Monitor,
     colorClass: 'bg-blue-100 text-blue-600',
@@ -38,7 +39,7 @@ const transactions = [
     title: 'Groceries Supermarket',
     category: 'Food',
     date: 'Jun 26, 2026, 09:15 AM',
-    amount: '124.50',
+    amount: 150000,
     type: 'expense',
     icon: ShoppingCart,
     colorClass: 'bg-orange-100 text-orange-600',
@@ -48,7 +49,7 @@ const transactions = [
     title: 'Apartment Rent',
     category: 'Rent',
     date: 'Jun 25, 2026, 08:00 AM',
-    amount: '850.00',
+    amount: 1500000,
     type: 'expense',
     icon: Home,
     colorClass: 'bg-purple-100 text-purple-600',
@@ -58,7 +59,7 @@ const transactions = [
     title: 'Starbucks Coffee',
     category: 'Cafe & Restaurants',
     date: 'Jun 24, 2026, 16:45 PM',
-    amount: '12.00',
+    amount: 55000,
     type: 'expense',
     icon: Utensils,
     colorClass: 'bg-rose-100 text-rose-600',
@@ -148,7 +149,7 @@ const transactions = [
               class="text-sm md:text-base font-bold tracking-tight"
               :class="tx.type === 'income' ? 'text-green-600' : 'text-[#1A1D1F]'"
             >
-              {{ tx.type === 'income' ? '+' : '-' }}${{ tx.amount }}
+              {{ tx.type === 'income' ? '+' : '-' }} {{ formatRupiah(tx.amount) }}
             </span>
             <button
               class="hidden md:block text-slate-300 hover:text-[#1A1D1F] opacity-0 group-hover:opacity-100 transition-opacity"
