@@ -4,6 +4,7 @@ import SummaryCard from '../components/SummaryCard.vue'
 import OverviewChart from '@/components/OverviewChart.vue'
 import BudgetChart from '@/components/BudgetChart.vue'
 import StatisticsChart from '@/components/StatisticsChart.vue'
+import { formatRupiah } from '../utils/formatters.js'
 </script>
 
 <template>
@@ -34,33 +35,33 @@ import StatisticsChart from '@/components/StatisticsChart.vue'
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <SummaryCard
-        title="Total Balance"
-        amount="$15,700.00"
+        title="Total balance"
+        :amount="formatRupiah(15700000)"
         trendPercent="12.1%"
         :isPositive="true"
         :transactions="50"
         :categories="15"
-        comparisonText="You have extra <span class='text-[#1A1D1F] font-bold'>$1,700</span><br>compared to last month"
+        :comparisonText="`You have extra <span class='text-[#1A1D1F] font-bold'>${formatRupiah(1700000)}</span><br>compared to last month`"
       />
 
       <SummaryCard
         title="Income"
-        amount="$8,500.00"
+        :amount="formatRupiah(8500000)"
         trendPercent="6.2%"
         :isPositive="true"
         :transactions="27"
         :categories="6"
-        comparisonText="You earn extra <span class='text-[#1A1D1F] font-bold'>$500</span><br>compared to last month"
+        :comparisonText="`You earn extra <span class='text-[#1A1D1F] font-bold'>${formatRupiah(500000)}</span><br>compared to last month`"
       />
 
       <SummaryCard
         title="Expense"
-        amount="$6,222.00"
+        :amount="formatRupiah(6222000)"
         trendPercent="2.4%"
-        :isPositive="true"
+        :isPositive="false"
         :transactions="23"
         :categories="9"
-        comparisonText="You spent extra <span class='text-[#1A1D1F] font-bold'>$1,222</span><br>compared to last month"
+        :comparisonText="`You spent extra <span class='text-[#1A1D1F] font-bold'>${formatRupiah(1222000)}</span><br>compared to last month`"
       />
     </div>
 

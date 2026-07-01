@@ -1,5 +1,6 @@
 <script setup>
 import { ChevronDown } from 'lucide-vue-next'
+import { formatRupiah } from '../utils/formatters' // 1. Import fungsi format
 </script>
 
 <template>
@@ -25,12 +26,14 @@ import { ChevronDown } from 'lucide-vue-next'
         class="w-48 h-48 rounded-full border-[16px] border-slate-100 flex flex-col items-center justify-center shadow-inner relative"
       >
         <p class="text-xs text-slate-400 font-medium">This month expense</p>
-        <p class="text-xl font-bold text-[#1A1D1F]">$6,222.00</p>
+
+        <p class="text-xl font-bold text-[#1A1D1F]">{{ formatRupiah(6222000) }}</p>
+
         <div
-          class="absolute -right-4 -top-2 bg-white border border-slate-100 shadow-sm px-2 py-1 rounded-md text-[10px] font-bold text-slate-600"
+          class="absolute -right-4 -top-2 bg-white border border-slate-100 shadow-sm px-2 py-1 rounded-md text-[10px] font-bold text-slate-600 text-center"
         >
           50% <br />
-          $2,500
+          {{ formatRupiah(2500000) }}
         </div>
       </div>
 
