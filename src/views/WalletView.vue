@@ -4,10 +4,10 @@ import { Plus, MoreVertical, Landmark, Wallet, CreditCard, ArrowUpRight } from '
 import { formatRupiah } from '../utils/formatters'
 import AddWalletDrawer from '../components/AddWalletDrawer.vue'
 
-//STATE UNTUK MENGATUR DRAWER
+// State untuk mengatur Drawer
 const isDrawerOpen = ref(false)
 
-// Data Mock untuk Daftar Dompet
+// Data dompet diubah menjadi Ref agar reaktif
 const wallets = ref([
   {
     id: 1,
@@ -41,7 +41,7 @@ const wallets = ref([
   },
 ])
 
-// COMPUTED PROPERTY AGAR TOTAL NET WORTH TERHITUNG OTOMATIS SAAT DOMPET BARU DITAMBAHKAN
+// Computed property agar Total Net Worth otomatis terhitung ulang saat dompet baru ditambahkan
 const totalNetWorth = computed(() => {
   return wallets.value.reduce((sum, wallet) => sum + wallet.balance, 0)
 })
