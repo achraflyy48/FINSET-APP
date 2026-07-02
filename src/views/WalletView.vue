@@ -1,9 +1,14 @@
 <script setup>
+import { ref, computed } from 'vue'
 import { Plus, MoreVertical, Landmark, Wallet, CreditCard, ArrowUpRight } from 'lucide-vue-next'
 import { formatRupiah } from '../utils/formatters'
+import AddWalletDrawer from '../components/AddWalletDrawer.vue'
+
+//STATE UNTUK MENGATUR DRAWER
+const isDrawerOpen = ref(false)
 
 // Data Mock untuk Daftar Dompet
-const wallets = [
+const wallets = ref([
   {
     id: 1,
     name: 'Bank BCA',
@@ -34,10 +39,23 @@ const wallets = [
     icon: CreditCard,
     theme: 'light',
   },
-]
+])
 
-// Menghitung Total Net Worth secara otomatis dari array wallets
-const totalNetWorth = wallets.reduce((sum, wallet) => sum + wallet.balance, 0)
+// COMPUTED PROPERTY AGAR TOTAL NET WORTH TERHITUNG OTOMATIS SAAT DOMPET BARU DITAMBAHKAN
+const totalNetWorth = computed(() => {
+  return wallets.value.reduce((total, wallet) => sum + wallet.balance, 0)
+})
+
+//FUNGSI UNTUK MENANGANI DATA BARU DARI DRAWER
+const handleAddNewWallet = (newWalletData) => {
+  //JIKA DOMPET BARU DISET SEBAGAI PRIMARY, MAKA CABUT PRIMARY DARI DOMPET LAINNYA
+  if (newWalletData.isPrimary) {
+    wallets.value.forEach((w) => (w.isPrimary = false))
+  }
+}
+
+//MENENTUKAN IKON BERDASARKAN TIPE DOMPET
+let iconComponent = CreditCard // Default icon
 </script>
 
 <template>
