@@ -43,19 +43,35 @@ const wallets = ref([
 
 // COMPUTED PROPERTY AGAR TOTAL NET WORTH TERHITUNG OTOMATIS SAAT DOMPET BARU DITAMBAHKAN
 const totalNetWorth = computed(() => {
-  return wallets.value.reduce((total, wallet) => sum + wallet.balance, 0)
+  return wallets.value.reduce((sum, wallet) => sum + wallet.balance, 0)
 })
 
-//FUNGSI UNTUK MENANGANI DATA BARU DARI DRAWER
+// Fungsi untuk menangani data baru dari Drawer
 const handleAddNewWallet = (newWalletData) => {
-  //JIKA DOMPET BARU DISET SEBAGAI PRIMARY, MAKA CABUT PRIMARY DARI DOMPET LAINNYA
+  // Jika wallet baru diset primary, cabut primary dari dompet lain
   if (newWalletData.isPrimary) {
     wallets.value.forEach((w) => (w.isPrimary = false))
   }
-}
 
-//MENENTUKAN IKON BERDASARKAN TIPE DOMPET
-let iconComponent = CreditCard // Default icon
+  // Tentukan Ikon berdasarkan Tipe
+  let iconComponent = CreditCard
+  if (newWalletData.type === 'Bank Account') iconComponent = Landmark
+  if (newWalletData.type === 'E-Wallet') iconComponent = Wallet
+
+  // Masukkan ke array
+  wallets.value.push({
+    id: Date.now(), // Generate ID acak
+    name: newWalletData.name,
+    type: newWalletData.type,
+    balance: newWalletData.balance,
+    number: '**** **** New', // Simulasi nomor baru
+    isPrimary: newWalletData.isPrimary,
+    icon: iconComponent,
+    theme: newWalletData.theme,
+  })
+
+  isDrawerOpen.value = false // Tutup panel
+}
 </script>
 
 <template>
@@ -78,6 +94,7 @@ let iconComponent = CreditCard // Default icon
       </div>
 
       <button
+        @click="isDrawerOpen = true"
         class="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#6F4EFA] text-white rounded-xl font-bold hover:bg-[#5b3ce0] transition-all shadow-sm shadow-[#6F4EFA]/25"
       >
         <Plus class="w-5 h-5 stroke-[2.5px]" />
@@ -171,5 +188,10 @@ let iconComponent = CreditCard // Default icon
         </div>
       </div>
     </div>
+    <AddWalletDrawer
+      :is-open="isDrawerOpen"
+      @close="isDrawerOpen = false"
+      @save="handleAddNewWallet"
+    />
   </div>
 </template>
