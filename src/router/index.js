@@ -3,6 +3,7 @@ import DashboardView from '../views/DashboardView.vue'
 import AnalyticsView from '@/views/AnalyticsView.vue'
 import TransactionsView from '../views/TransactionsView.vue'
 import WalletView from '../views/WalletView.vue'
+import GoalsView from '../views/GoalsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,15 @@ const router = createRouter({
       meta: {
         title: 'My Wallet',
         subtitle: 'Manage your accounts and digital wallets',
+      },
+    },
+    {
+      path: '/goals',
+      name: 'goals',
+      component: GoalsView,
+      meta: {
+        title: 'Financial Goals',
+        subtitle: 'Track and manage your savings targets',
       },
     },
   ],
