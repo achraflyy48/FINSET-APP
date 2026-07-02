@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
 import AnalyticsView from '@/views/AnalyticsView.vue'
 import TransactionsView from '../views/TransactionsView.vue'
+import WalletView from '../views/WalletView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,15 @@ const router = createRouter({
       meta: {
         title: 'Transactions',
         subtitle: 'Manage and track your financial history',
+      },
+    },
+    {
+      path: '/wallet',
+      name: 'wallet',
+      component: WalletView,
+      meta: {
+        title: 'My Wallet',
+        subtitle: 'Manage your accounts and digital wallets',
       },
     },
   ],
