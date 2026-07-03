@@ -67,4 +67,11 @@ const goals = ref([
 //COMPUTED PROPERTY UNTUK MENGHITUNG PERSENTASE PROGRESS, TOTAL TERSIMPAN, DAN TOTAL TARGET
 const totalSaved = computed(() => goals.value.reduce((sum, goal) => sum + goal.saved, 0))
 const totalTarget = computed(() => goals.value.reduce((sum, goal) => sum + goal.target, 0))
+
+//FUNGSI UNTUK MENGHITUNG PERSENTASE BAR
+const getPercent = (saved, target) => {
+  return Math.min(Math.round((saved / target) * 100), 100)
+}
 </script>
+
+<template></template>
