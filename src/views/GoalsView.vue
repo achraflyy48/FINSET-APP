@@ -11,6 +11,10 @@ import {
   PlusCircle,
 } from 'lucide-vue-next'
 import { formatRupiah } from '../utils/formatters'
+import AddGoalDrawer from '../components/AddGoalDrawer.vue'
+
+//STATE UNTUK MENGATUR DRAWER ADD GOAL
+const isDrawerOpen = ref(false)
 
 // Data Mock untuk Daftar Goals (Perhatikan variasi hasDeadline)
 const goals = ref([
@@ -72,6 +76,15 @@ const totalTarget = computed(() => goals.value.reduce((sum, goal) => sum + goal.
 const getPercent = (saved, target) => {
   return Math.min(Math.round((saved / target) * 100), 100)
 }
+
+//FUNGSI UNTUK MENERIMA DATA DARI DRAWER ADD GOAL DAN MENAMBAHKAN KE LIST GOALS
+const handleAddNewGoal = (newGoalData) => {
+  goals.value.push({
+    id: Date.now(),
+    ...newGoalData,
+  })
+  isDrawerOpen.value = false // Tutup drawer setelah menambahkan goal baru
+}
 </script>
 
 <template>
@@ -100,6 +113,7 @@ const getPercent = (saved, target) => {
       </div>
 
       <button
+        @click="isDrawerOpen = true"
         class="relative z-10 flex items-center justify-center gap-2 px-6 py-3.5 bg-[#6F4EFA] text-white rounded-xl font-bold hover:bg-[#5b3ce0] transition-all shadow-sm shadow-[#6F4EFA]/25 w-full md:w-auto"
       >
         <Plus class="w-5 h-5 stroke-[2.5px]" />
@@ -171,5 +185,6 @@ const getPercent = (saved, target) => {
         </div>
       </div>
     </div>
+    <AddGoalDrawer :is-open="isDrawerOpen" @close="isDrawerOpen = false" @save="handleAddNewGoal" />
   </div>
 </template>
