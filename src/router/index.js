@@ -4,6 +4,7 @@ import AnalyticsView from '@/views/AnalyticsView.vue'
 import TransactionsView from '../views/TransactionsView.vue'
 import WalletView from '../views/WalletView.vue'
 import GoalsView from '../views/GoalsView.vue'
+import BudgetView from '../views/BudgetView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,15 @@ const router = createRouter({
       meta: {
         title: 'Financial Goals',
         subtitle: 'Track and manage your savings targets',
+      },
+    },
+    {
+      path: '/budget',
+      name: 'budget',
+      component: BudgetView,
+      meta: {
+        title: 'Monthly Budget',
+        subtitle: 'Control your expenses and set limits',
       },
     },
   ],
