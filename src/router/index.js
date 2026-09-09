@@ -5,6 +5,7 @@ import TransactionsView from '../views/TransactionsView.vue'
 import WalletView from '../views/WalletView.vue'
 import GoalsView from '../views/GoalsView.vue'
 import BudgetView from '../views/BudgetView.vue'
+import SettingsView from '../views/SettingsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -61,6 +62,15 @@ const router = createRouter({
       meta: {
         title: 'Monthly Budget',
         subtitle: 'Control your expenses and set limits',
+      },
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
+      meta: {
+        title: 'Settings',
+        subtitle: 'Manage your account and app preferences',
       },
     },
   ],
