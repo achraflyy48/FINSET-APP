@@ -104,7 +104,28 @@ const notifSettings = ref({
         </div>
       </div>
 
+      <!-- 2. KONTEN: PREFERENCES -->
+       <div v-show="activeTab === 'preferences'" class="space-y-8 animate-fade-in">
+        <div>
+          <h3 class="text-xl font-bold text-[#1A1D1F]">App Preferences</h3>
+          <p class="text-sm text-slate-500 mt-1">Customize how the app works for you</p>
+        </div>
 
+        <div class="space-y-6">
+          <!-- Base Currency -->
+           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-slate-100 rounded-2xl">
+            <div>
+              <h4 class="font-bold text-[#1A1D1F]">Base Currency</h4>
+              <p class="text-sm text-slate-500 mt-0.5">Your primary currency for reports</p>
+            </div>
+            <select class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-[#1A1D1F] focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA]">
+              <option value="IDR">IDR - Indonesian Rupiah</option>
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+            </select>
+           </div>
+        </div>
+       </div>
     </div>
   </div>
 </template>
