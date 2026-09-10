@@ -111,7 +111,27 @@ const notifSettings = ref({
         </div>
 
         <hr class="border-slate-100" />
+
+        <!--FORM INPUT-->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-[#1A1D1F]">Full Name</label>
+            <input v-model="profileForm.name" type="text" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA] transition-all font-medium text-[#1A1D1F]">
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-[#1A1D1F]">Email Address</label>
+            <input v-model="profileForm.email" type="email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA] transition-all font-medium text-[#1A1D1F]">
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-4">
+          <button class="px-6 py-3 bg-[#6F4EFA] text-white rounded-xl">
+            Save Changes
+          </button>
+        </div>
       </div>
+
+      
     </div>
   </div>
 </template>
