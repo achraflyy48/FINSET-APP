@@ -124,6 +124,11 @@ const notifSettings = ref({
               <option value="EUR">EUR - Euro</option>
             </select>
            </div>
+
+           <!--Billing Cycle (Tanggal Gajian)-->
+           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-slate-100 rounded-2xl">
+
+           </div>
         </div>
        </div>
     </div>
