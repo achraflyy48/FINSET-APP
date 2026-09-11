@@ -250,6 +250,24 @@ const notifSettings = ref({
               ></div>
             </div>
           </label>
+
+          <!--TOGGLE 3-->
+          <label
+            class="flex items-center justify-between p-4 border border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition-colors"
+          >
+            <div>
+              <h4 class="font-bold text-[#1A1D1F]">Weekly Reports</h4>
+              <p class="text-sm text-slate-500 mt-0.5">
+                Receive weekly financial summary via email.
+              </p>
+            </div>
+            <div class="relative">
+              <input type="checkbox" v-model="notifSettings.weeklyReports" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#6F4EFA]"
+              ></div>
+            </div>
+          </label>
         </div>
       </div>
     </div>
