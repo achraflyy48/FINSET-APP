@@ -144,7 +144,7 @@ const notifSettings = ref({
       <div v-show="activeTab === 'preferences'" class="space-y-8 animate-fade-in">
         <div>
           <h3 class="text-xl font-bold text-[#1A1D1F]">App Preferences</h3>
-          <p class="text-sm text-slate-500 mt-1">Customize how the app works for you</p>
+          <p class="text-sm text-slate-500 mt-1">Customize how the app works for you.</p>
         </div>
 
         <div class="space-y-6">
@@ -154,7 +154,7 @@ const notifSettings = ref({
           >
             <div>
               <h4 class="font-bold text-[#1A1D1F]">Base Currency</h4>
-              <p class="text-sm text-slate-500 mt-0.5">Your primary currency for reports</p>
+              <p class="text-sm text-slate-500 mt-0.5">Your primary currency for reports.</p>
             </div>
             <select
               class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-[#1A1D1F] focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA]"
@@ -165,7 +165,7 @@ const notifSettings = ref({
             </select>
           </div>
 
-          <!--Billing Cycle (Tanggal Gajian)-->
+          <!-- Billing Cycle (Tanggal Gajian) -->
           <div
             class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-slate-100 rounded-2xl"
           >
@@ -183,13 +183,13 @@ const notifSettings = ref({
             </div>
           </div>
 
-          <!--Appearance-->
+          <!-- Appearance -->
           <div
             class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-slate-100 rounded-2xl"
           >
             <div>
               <h4 class="font-bold text-[#1A1D1F]">Appearance</h4>
-              <p class="text-sm text-slate-500 mt-0.5">Choose your visual theme</p>
+              <p class="text-sm text-slate-500 mt-0.5">Choose your visual theme.</p>
             </div>
             <div class="flex bg-slate-100 p-1 rounded-xl">
               <button
@@ -207,22 +207,22 @@ const notifSettings = ref({
         </div>
       </div>
 
-      <!--3. KONTEN: NOTIFICATIONS-->
+      <!-- 3. KONTEN: NOTIFICATIONS -->
       <div v-show="activeTab === 'notifications'" class="space-y-8 animate-fade-in">
         <div>
           <h3 class="text-xl font-bold text-[#1A1D1F]">Notifications</h3>
-          <p class="text-sm text-slate-500 mt-1">Manage what alerts you receive</p>
+          <p class="text-sm text-slate-500 mt-1">Manage what alerts you receive.</p>
         </div>
 
         <div class="space-y-4">
-          <!--TOGGLE 1-->
+          <!-- Toggle 1 -->
           <label
             class="flex items-center justify-between p-4 border border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition-colors"
           >
             <div>
               <h4 class="font-bold text-[#1A1D1F]">Budget Alerts</h4>
               <p class="text-sm text-slate-500 mt-0.5">
-                Get notified when you reach 90% of a budget
+                Get notified when you reach 90% of a budget.
               </p>
             </div>
             <div class="relative">
@@ -233,14 +233,14 @@ const notifSettings = ref({
             </div>
           </label>
 
-          <!--TOGGLE 2-->
+          <!-- Toggle 2 -->
           <label
             class="flex items-center justify-between p-4 border border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition-colors"
           >
             <div>
               <h4 class="font-bold text-[#1A1D1F]">Goal Reminders</h4>
               <p class="text-sm text-slate-500 mt-0.5">
-                Reminders for your saving target deadlines
+                Reminders for your saving target deadlines.
               </p>
             </div>
             <div class="relative">
@@ -251,7 +251,7 @@ const notifSettings = ref({
             </div>
           </label>
 
-          <!--TOGGLE 3-->
+          <!-- Toggle 3 -->
           <label
             class="flex items-center justify-between p-4 border border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition-colors"
           >
@@ -268,6 +268,68 @@ const notifSettings = ref({
               ></div>
             </div>
           </label>
+        </div>
+      </div>
+
+      <!-- 4. KONTEN: SECURITY & DATA -->
+      <div v-show="activeTab === 'security'" class="space-y-8 animate-fade-in">
+        <div>
+          <h3 class="text-xl font-bold text-[#1A1D1F]">Data & Security</h3>
+          <p class="text-sm text-slate-500 mt-1">Protect your account and manage your data.</p>
+        </div>
+
+        <!-- Password -->
+        <div class="space-y-4">
+          <h4 class="font-bold text-[#1A1D1F]">Change Password</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              type="password"
+              placeholder="Current Password"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA]"
+            />
+            <input
+              type="password"
+              placeholder="New Password"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#6F4EFA]/20 focus:border-[#6F4EFA]"
+            />
+          </div>
+          <button
+            class="px-5 py-2.5 bg-slate-100 text-[#1A1D1F] rounded-xl text-sm font-bold hover:bg-slate-200 transition-all"
+          >
+            Update Password
+          </button>
+        </div>
+
+        <hr class="border-slate-100" />
+
+        <!-- Export -->
+        <div>
+          <h4 class="font-bold text-[#1A1D1F] mb-3">Export Data</h4>
+          <p class="text-sm text-slate-500 mb-4">
+            Download a complete copy of your financial data (transactions, budgets, goals).
+          </p>
+          <button
+            class="flex items-center gap-2 px-5 py-2.5 border-2 border-slate-200 text-[#1A1D1F] rounded-xl text-sm font-bold hover:border-[#6F4EFA] hover:text-[#6F4EFA] hover:bg-[#6F4EFA]/5 transition-all"
+          >
+            <Download class="w-4 h-4 stroke-[2.5px]" />
+            Export as CSV
+          </button>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="mt-8 border border-red-200 bg-red-50/50 rounded-2xl p-5">
+          <h4 class="font-bold text-red-600 flex items-center gap-2">
+            <AlertTriangle class="w-5 h-5" />
+            Danger Zone
+          </h4>
+          <p class="text-sm text-slate-600 mt-1 mb-4">
+            Once you delete your account, there is no going back. Please be certain.
+          </p>
+          <button
+            class="px-5 py-2.5 bg-white border-2 border-red-100 text-red-600 rounded-xl text-sm font-bold hover:bg-red-50 hover:border-red-200 transition-all"
+          >
+            Delete Account
+          </button>
         </div>
       </div>
     </div>
