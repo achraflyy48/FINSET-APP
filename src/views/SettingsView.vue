@@ -335,3 +335,30 @@ const notifSettings = ref({
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Transisi halus saat pindah tab */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sembunyikan scrollbar di mobile tab tapi tetap bisa di-scroll */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
