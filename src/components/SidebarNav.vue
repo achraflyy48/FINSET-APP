@@ -33,6 +33,7 @@ const mainMenus = [
   { name: 'Budget', path: '/budget', icon: PieChart },
   { name: 'Analytics', path: '/analytics', icon: BarChart2 },
   { name: 'Settings', path: '/settings', icon: Settings },
+  { name: 'Help', path: '/help', icon: HelpCircle },
 ]
 </script>
 
@@ -87,13 +88,6 @@ const mainMenus = [
     </div>
 
     <div class="flex flex-col gap-1">
-      <button
-        class="flex items-center gap-4 px-4 py-3 rounded-2xl text-sm font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all text-left"
-      >
-        <HelpCircle class="w-5 h-5 stroke-[2px]" />
-        Help
-      </button>
-
       <button
         class="flex items-center gap-4 px-4 py-3 rounded-2xl text-sm font-medium text-slate-500 hover:text-red-500 hover:bg-red-50 transition-all text-left mb-6"
       >
