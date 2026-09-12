@@ -103,7 +103,7 @@ const toggleFaq = (id) => {
 
       <div class="relative z-10 max-w-2xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
-          Hi Alexandre, how can we help?
+          Hi Achmad Rafli, how can we help?
         </h2>
         <p class="text-slate-300 mb-8 text-sm md:text-base">
           Search our knowledge base or browse categories below to find your answers.
