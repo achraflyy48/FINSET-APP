@@ -6,6 +6,7 @@ import WalletView from '../views/WalletView.vue'
 import GoalsView from '../views/GoalsView.vue'
 import BudgetView from '../views/BudgetView.vue'
 import SettingsView from '../views/SettingsView.vue'
+import HelpView from '../views/HelpView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,6 +72,15 @@ const router = createRouter({
       meta: {
         title: 'Settings',
         subtitle: 'Manage your account and app preferences',
+      },
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: HelpView,
+      meta: {
+        title: 'Help Center',
+        subtitle: 'Find answers and get support',
       },
     },
   ],
