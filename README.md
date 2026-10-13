@@ -1,38 +1,63 @@
-# finset-app
+# Finset - Financial Management Web Application
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplikasi web manajemen keuangan pribadi yang modern, responsif, dan aman, dirancang untuk membantu pengguna mengontrol anggaran, memantau transaksi, serta mencapai tujuan finansial dengan mudah.
 
-## Recommended IDE Setup
+## 🚀 Tech Stack
+- **Frontend Framework:** Vue 3 (Composition API)
+- **Build Tool:** Vite
+- **Routing:** Vue Router
+- **Styling & Design:** Tailwind CSS (Mobile-First Layout)
+- **Icons:** Lucide Vue Next
+- **Backend & Authentication:** Supabase (Email/Password Auth & Row-Level Security Ready)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## ✨ Key Features
+- 🔐 **Secure Authentication:** Sistem pendaftaran dan masuk (*Sign Up / Sign In*) yang terintegrasi langsung dengan Supabase Auth.
+- 🛡️ **Route Guarding:** Pelindungan rute privat secara otomatis (`router.beforeEach`) untuk memastikan hanya pengguna terautentikasi yang dapat mengakses halaman utama.
+- 📱 **Fully Responsive UI:** Desain adaptif dengan *sidebar drawer* interaktif yang ramah pengguna seluler (*mobile-friendly*).
+- 🚪 **Interactive Modals:** Konfirmasi keluar akun (*Logout*) berbasis pop-up modal untuk pengalaman pengguna yang lebih intuitif.
+- 📊 **Financial Modules:** Navigasi lengkap mencakup Dashboard, Transactions, Wallets, Goals, Budget, Analytics, Settings, dan Help Center.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Customize configuration
+## 📂 Project Milestones
+- **Milestone 2 (UI Slicing & Component Architecture):** Membangun kerangka tata letak, komponen navigasi, serta optimalisasi responsivitas *mobile*.
+- **Milestone 3 (Authentication & Gatekeeper):** Mengintegrasikan Supabase, membangun tampilan *Login/Register*, serta menerapkan pengamanan rute.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## ⚙️ Getting Started & Installation
 
-```sh
-npm install
-```
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek ini secara lokal di komputer Anda:
 
-### Compile and Hot-Reload for Development
+1. **Clone repository ini:**
+   ```bash
+   git clone [https://github.com/achrafly48/finset.git](https://github.com/achrafly48/finset.git)
+   cd finset
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Konfigurasi Environment Variables:**
+   ```bash
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+4. **Jalankan development server:**
+   ```bash
+   npm run dev
+   ```
 
-```sh
-npm run dev
-```
+---
 
-### Compile and Minify for Production
+## 💡 Usage
+- Buka halaman aplikasi melalui tautan lokal (http://localhost:5173).
+- Lakukan registrasi akun baru melalui halaman Sign Up atau masuk menggunakan akun yang sudah terdaftar.
+- Kelola keuangan Anda melalui panel Dashboard utama dan navigasi menu yang tersedia.
 
-```sh
-npm run build
-```
+---
+
+## 📄 License
+Distributed under the MIT License. See LICENSE for more information.
