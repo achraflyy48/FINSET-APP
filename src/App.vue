@@ -13,7 +13,7 @@ const toggleSidebar = () => {
 
 <template>
   <div class="flex h-screen w-screen overflow-hidden bg-white text-[#1A1D1F]">
-    <SidebarNav :is-open="isSidebarOpen" @close-sidebar="isSidebarOpen = false" />
+    <SidebarNav :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
 
     <div class="flex-1 h-full flex flex-col overflow-hidden bg-white">
       <HeaderBar @toggle-sidebar="toggleSidebar" />

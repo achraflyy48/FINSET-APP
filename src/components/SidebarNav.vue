@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import {
   LayoutDashboard,
@@ -10,27 +9,57 @@ import {
   Settings,
   HelpCircle,
   LogOut,
+  X,
 } from 'lucide-vue-next'
 
 const route = useRoute()
+
+// Menerima props untuk mengontrol status buka/tutup di HP
+defineProps({
+  isOpen: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const emit = defineEmits(['close'])
 </script>
 
 <template>
-  <aside class="sidebar-container flex flex-col h-screen p-6 bg-white border-r border-slate-100">
+  <!-- Overlay gelap saat sidebar terbuka di HP -->
+  <div v-if="isOpen" @click="emit('close')" class="fixed inset-0 bg-black/50 z-40 md:hidden"></div>
+
+  <!-- Sidebar Container -->
+  <aside
+    :class="[
+      'fixed md:static inset-y-0 left-0 z-50 w-64 flex flex-col h-screen p-6 bg-white border-r border-slate-100 transition-transform duration-300 ease-in-out',
+      isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
+    ]"
+  >
     <!-- Logo / Brand -->
-    <div class="flex items-center gap-3 mb-10">
-      <div
-        class="w-10 h-10 rounded-xl bg-[#1A1D1F] flex items-center justify-center text-white font-bold text-xl"
-      >
-        F
+    <div class="flex items-center justify-between mb-10">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-xl bg-[#1A1D1F] flex items-center justify-center text-white font-bold text-xl"
+        >
+          F
+        </div>
+        <span class="text-xl font-bold text-[#1A1D1F]">FinSet</span>
       </div>
-      <span class="text-xl font-bold text-[#1A1D1F]">FinSet</span>
+      <!-- Tombol Close khusus HP -->
+      <button
+        @click="emit('close')"
+        class="md:hidden p-2 rounded-xl text-slate-400 hover:text-[#1A1D1F] hover:bg-slate-100 transition-colors"
+      >
+        <X class="w-6 h-6" />
+      </button>
     </div>
 
     <!-- Navigation Links -->
-    <nav class="flex-1 space-y-2">
+    <nav class="flex-1 space-y-2 overflow-y-auto">
       <RouterLink
         to="/"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/',
@@ -42,6 +71,7 @@ const route = useRoute()
 
       <RouterLink
         to="/transactions"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white':
@@ -54,6 +84,7 @@ const route = useRoute()
 
       <RouterLink
         to="/wallets"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/wallets',
@@ -65,6 +96,7 @@ const route = useRoute()
 
       <RouterLink
         to="/goals"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/goals',
@@ -76,6 +108,7 @@ const route = useRoute()
 
       <RouterLink
         to="/budget"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/budget',
@@ -87,6 +120,7 @@ const route = useRoute()
 
       <RouterLink
         to="/analytics"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white':
@@ -99,6 +133,7 @@ const route = useRoute()
 
       <RouterLink
         to="/settings"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/settings',
@@ -110,6 +145,7 @@ const route = useRoute()
 
       <RouterLink
         to="/help"
+        @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
           'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/help',
@@ -123,6 +159,7 @@ const route = useRoute()
     <!-- Footer / Logout -->
     <div class="mt-auto pt-4 border-t border-slate-100">
       <button
+        @click="emit('close')"
         class="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 transition-all"
       >
         <LogOut class="w-5 h-5" />
@@ -131,7 +168,3 @@ const route = useRoute()
     </div>
   </aside>
 </template>
-
-<style scoped>
-/* Tambahkan custom scoped CSS di sini jika diperlukan */
-</style>
