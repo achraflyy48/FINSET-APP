@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 import {
   LayoutDashboard,
   Receipt,
@@ -11,8 +11,11 @@ import {
   LogOut,
   X,
 } from 'lucide-vue-next'
+import { useAuth } from '../composables/useAuth'
 
+const { signOut } = useAuth()
 const route = useRoute()
+const router = useRouter()
 
 // Menerima props untuk mengontrol status buka/tutup di HP
 defineProps({
@@ -23,6 +26,12 @@ defineProps({
 })
 
 const emit = defineEmits(['close'])
+
+const handleLogout = async () => {
+  emit('close') // Tutup sidebar di HP saat logout
+  await signOut()
+  router.push('/login') // Arahkan ke halaman login setelah logout
+}
 </script>
 
 <template>
@@ -159,7 +168,7 @@ const emit = defineEmits(['close'])
     <!-- Footer / Logout -->
     <div class="mt-auto pt-4 border-t border-slate-100">
       <button
-        @click="emit('close')"
+        @click="handleLogout"
         class="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 transition-all"
       >
         <LogOut class="w-5 h-5" />
