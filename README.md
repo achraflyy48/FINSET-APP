@@ -22,8 +22,12 @@ Aplikasi web manajemen keuangan pribadi yang modern, responsif, dan aman, diranc
 ---
 
 ## 📂 Project Milestones
+- **Milestone 1 Environment Setup & Database Architecture (The Foundation):** Memastikan fondasi aplikasi seperti Inisialisasi project Vue.js, instalasi Tailwind CSS, dan instalasi Supabase SDK.
 - **Milestone 2 (UI Slicing & Component Architecture):** Membangun kerangka tata letak, komponen navigasi, serta optimalisasi responsivitas *mobile*.
 - **Milestone 3 (Authentication & Gatekeeper):** Mengintegrasikan Supabase, membangun tampilan *Login/Register*, serta menerapkan pengamanan rute.
+- **Milestone 4 Core Logic & CRUD Transactions (The Muscle):** User bisa menambah dan menghapus data keuangan secara nyata, dan angka di Summary Cards (Total Balance, Income, Expense) otomatis terupdate secara dinamis dari database.
+- **Milestone 5 Advanced Logic & Chart Integration (The Brain):** Grafik garis, grafik batang, dan diagram donat berfungsi 100% secara akurat menampilkan visualisasi keuangan user.
+- **Milestone 6 Polishing, Theme Toggle & Optimization (The Final Touch):** Aplikasi berjalan mulus, tanpa bug logika, dan siap di-deploy (misal ke Vercel atau Netlify).
 
 ---
 
