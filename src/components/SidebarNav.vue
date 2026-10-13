@@ -1,114 +1,137 @@
 <script setup>
-import { RouterLink } from 'vue-router'
-// Mengimpor ikon spesifik yang kita butuhkan dari Lucide
+import { ref } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import {
   LayoutDashboard,
-  ArrowRightLeft,
+  Receipt,
   Wallet,
   Target,
   PieChart,
-  BarChart2,
   Settings,
   HelpCircle,
   LogOut,
-  Sun,
-  Moon,
-  X,
 } from 'lucide-vue-next'
 
-//MENERIMA ISOPEN DARI APP.VUE
-defineProps({
-  isOpen: Boolean,
-})
-
-//MENUTUP SIDEBAR JIKA TOMBOL X DI KLIK
-const emit = defineEmits(['close-sidebar'])
-
-// Menyimpan daftar menu dalam bentuk Array Object (Prinsip DRY)
-const mainMenus = [
-  { name: 'Dashboard', path: '/', icon: LayoutDashboard },
-  { name: 'Transactions', path: '/transactions', icon: ArrowRightLeft },
-  { name: 'Wallet', path: '/wallet', icon: Wallet },
-  { name: 'Goals', path: '/goals', icon: Target },
-  { name: 'Budget', path: '/budget', icon: PieChart },
-  { name: 'Analytics', path: '/analytics', icon: BarChart2 },
-  { name: 'Settings', path: '/settings', icon: Settings },
-  { name: 'Help', path: '/help', icon: HelpCircle },
-]
+const route = useRoute()
 </script>
 
 <template>
-  <div
-    v-if="isOpen"
-    @click="emit('close-sidebar')"
-    class="fixed inset-0 bg-[#1A1D1F]/50 backdrop-blur-sm z-40 md:hidden transition-opacity"
-  ></div>
-  <aside
-    :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-    class="fixed md:relative inset-y-0 left-0 z-50 w-64 h-full bg-white md:border-r border-slate-100 flex flex-col justify-between py-8 px-6 shrink-0 transition-transform duration-300 ease-in-out md:translate-x-0"
-  >
-    <div>
-      <div class="flex items-center justify-between mb-10 px-2">
-        <div class="flex items-center gap-3">
-          <div
-            class="w-8 h-8 rounded-full bg-[#1A1D1F] flex items-center justify-center text-white"
-          >
-            <span class="font-bold text-lg leading-none mt-[-2px]">F</span>
-          </div>
-          <span class="font-bold text-xl tracking-tight text-[#1A1D1F]">FinSet</span>
-        </div>
-
-        <button
-          @click="emit('close-sidebar')"
-          class="md:hidden p-1 text-slate-400 hover:text-[#1A1D1F] transition-all"
-        >
-          <X class="w-5 h-5" />
-        </button>
+  <aside class="sidebar-container flex flex-col h-screen p-6 bg-white border-r border-slate-100">
+    <!-- Logo / Brand -->
+    <div class="flex items-center gap-3 mb-10">
+      <div
+        class="w-10 h-10 rounded-xl bg-[#1A1D1F] flex items-center justify-center text-white font-bold text-xl"
+      >
+        F
       </div>
-
-      <nav class="flex flex-col gap-1">
-        <RouterLink
-          v-for="menu in mainMenus"
-          :key="menu.name"
-          :to="menu.path"
-          @click="emit('close-sidebar')"
-          class="flex items-center gap-4 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-200"
-          active-class="bg-[#6F4EFA] text-white shadow-lg shadow-[#6F4EFA]/25"
-          exact-active-class="bg-[#6F4EFA] text-white shadow-lg shadow-[#6F4EFA]/25"
-          :class="[
-            $route.path === menu.path
-              ? ''
-              : 'text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50',
-          ]"
-        >
-          <component :is="menu.icon" class="w-5 h-5 stroke-[2px]" />
-          {{ menu.name }}
-        </RouterLink>
-      </nav>
+      <span class="text-xl font-bold text-[#1A1D1F]">FinSet</span>
     </div>
 
-    <div class="flex flex-col gap-1">
-      <button
-        class="flex items-center gap-4 px-4 py-3 rounded-2xl text-sm font-medium text-slate-500 hover:text-red-500 hover:bg-red-50 transition-all text-left mb-6"
+    <!-- Navigation Links -->
+    <nav class="flex-1 space-y-2">
+      <RouterLink
+        to="/"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/',
+        }"
       >
-        <LogOut class="w-5 h-5 stroke-[2px]" />
-        Log out
-      </button>
+        <LayoutDashboard class="w-5 h-5" />
+        <span>Dashboard</span>
+      </RouterLink>
 
-      <div
-        class="bg-slate-50 p-1.5 rounded-full flex items-center justify-between border border-slate-100"
+      <RouterLink
+        to="/transactions"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white':
+            route.path === '/transactions',
+        }"
       >
-        <button
-          class="flex-1 flex justify-center py-2 rounded-full bg-[#6F4EFA] text-white shadow-sm transition-all"
-        >
-          <Sun class="w-4 h-4 stroke-[2.5px]" />
-        </button>
-        <button
-          class="flex-1 flex justify-center py-2 rounded-full text-slate-400 hover:text-slate-600 transition-all"
-        >
-          <Moon class="w-4 h-4 stroke-[2.5px]" />
-        </button>
-      </div>
+        <Receipt class="w-5 h-5" />
+        <span>Transactions</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/wallets"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/wallets',
+        }"
+      >
+        <Wallet class="w-5 h-5" />
+        <span>Wallets</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/goals"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/goals',
+        }"
+      >
+        <Target class="w-5 h-5" />
+        <span>Goals</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/budget"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/budget',
+        }"
+      >
+        <PieChart class="w-5 h-5" />
+        <span>Budget</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/analytics"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white':
+            route.path === '/analytics',
+        }"
+      >
+        <PieChart class="w-5 h-5" />
+        <span>Analytics</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/settings"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/settings',
+        }"
+      >
+        <Settings class="w-5 h-5" />
+        <span>Settings</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/help"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
+        :class="{
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/help',
+        }"
+      >
+        <HelpCircle class="w-5 h-5" />
+        <span>Help</span>
+      </RouterLink>
+    </nav>
+
+    <!-- Footer / Logout -->
+    <div class="mt-auto pt-4 border-t border-slate-100">
+      <button
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 transition-all"
+      >
+        <LogOut class="w-5 h-5" />
+        <span>Log out</span>
+      </button>
     </div>
   </aside>
 </template>
+
+<style scoped>
+/* Tambahkan custom scoped CSS di sini jika diperlukan */
+</style>
