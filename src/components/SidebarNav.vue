@@ -83,11 +83,11 @@ const emit = defineEmits(['close'])
       </RouterLink>
 
       <RouterLink
-        to="/wallets"
+        to="/wallet"
         @click="emit('close')"
         class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-slate-500 hover:text-[#1A1D1F] hover:bg-slate-50 transition-all"
         :class="{
-          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/wallets',
+          'bg-[#6F4EFA] text-white hover:bg-[#6F4EFA] hover:text-white': route.path === '/wallet',
         }"
       >
         <Wallet class="w-5 h-5" />
