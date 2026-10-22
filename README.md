@@ -12,6 +12,11 @@ Aplikasi web manajemen keuangan pribadi yang modern, responsif, dan aman, diranc
 
 ---
 
+## 🌐Live Preview 
+https://finset-app-flax.vercel.app/
+
+---
+
 ## ✨ Key Features
 - 🔐 **Secure Authentication:** Sistem pendaftaran dan masuk (*Sign Up / Sign In*) yang terintegrasi langsung dengan Supabase Auth.
 - 🛡️ **Route Guarding:** Pelindungan rute privat secara otomatis (`router.beforeEach`) untuk memastikan hanya pengguna terautentikasi yang dapat mengakses halaman utama.
