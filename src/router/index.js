@@ -117,13 +117,28 @@ router.beforeEach(async (to, from, next) => {
   const {
     data: { session },
   } = await supabase.auth.getSession()
+
+  if (session) {
+    const lastActive = localStorage.getItem('finset_last_active')
+    const now = new Date().getTime()
+    const twelveHours = 12 * 60 * 60 * 1000 // 12 jam dalam milidetik
+
+    if (lastActive && now - parseInt(lastActive) > twelveHours) {
+      // Jika sudah ditinggal lebih dari 12 jam, paksa logout & hapus sesi
+      await supabase.auth.signOut()
+      localStorage.removeItem('finset_last_active')
+      return next({ name: 'login' })
+    } else {
+      // Perbarui waktu aktif agar terus mereset selama user aktif mengakses aplikasi
+      localStorage.setItem('finset_last_active', now.toString())
+    }
+  }
+
   const isAuthenticated = !!session
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    // Jika halaman butuh login tapi user belum login -> arahkan ke /login
     next({ name: 'login' })
   } else if (to.meta.guestOnly && isAuthenticated) {
-    // Jika user sudah login tapi mencoba buka /login atau /register -> arahkan ke Dashboard
     next({ name: 'dashboard' })
   } else {
     next()
