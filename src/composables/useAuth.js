@@ -30,6 +30,10 @@ export function useAuth() {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) throw error
       user.value = data.user
+
+      //Catat waktu login pengguna saat ini
+      localStorage.setItem('finset_last_active', new Date().getTime().toString())
+
       return data
     } catch (error) {
       errorMessage.value = error.message
@@ -46,6 +50,9 @@ export function useAuth() {
       const { error } = await supabase.auth.signOut()
       if (error) throw error
       user.value = null
+
+      // Hapus waktu login pengguna saat logout
+      localStorage.removeItem('finset_last_active')
     } catch (error) {
       errorMessage.value = error.message
       throw error
